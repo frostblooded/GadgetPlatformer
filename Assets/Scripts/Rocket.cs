@@ -6,6 +6,7 @@ public class Rocket : MonoBehaviour
 {
     public float speed = 10;
     public float rotationSpeed = 0.3f;
+    public float damage = 1;
 
     private float m_timeAlive = 0;
     private float m_effectiveSpeed;
@@ -21,7 +22,11 @@ public class Rocket : MonoBehaviour
 
     private void RotateTowardsPlayer()
     {
-        Transform player = FindObjectOfType<Player>().transform;
+        Player player = FindObjectOfType<Player>();
+
+        if(!player)
+            return;
+
         Vector3 vectorToTarget = player.transform.position - transform.position;
         float angle = (Mathf.Atan2(vectorToTarget.y, vectorToTarget.x) - Mathf.PI/2) * Mathf.Rad2Deg;
         Quaternion q = Quaternion.AngleAxis(angle, Vector3.forward);
@@ -44,4 +49,12 @@ public class Rocket : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.tag == "Player")
+        {
+            collision.gameObject.GetComponent<Health>().TakeDamage(damage);
+            Destroy(gameObject);
+        }
+    }
 }
