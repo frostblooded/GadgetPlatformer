@@ -9,7 +9,7 @@ public class Shooter : MonoBehaviour
     public float shootCooldown = 2;
     public Transform shotOrigin;
 
-    private float m_timeSinceLastShoot = 0;
+    private float m_timeSinceLastShoot = Mathf.Infinity;
 
     private void Update()
     {

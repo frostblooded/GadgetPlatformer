@@ -56,5 +56,9 @@ public class Rocket : MonoBehaviour
             collision.gameObject.GetComponent<Health>().TakeDamage(damage);
             Destroy(gameObject);
         }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 }
