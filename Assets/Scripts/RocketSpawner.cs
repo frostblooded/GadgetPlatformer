@@ -6,8 +6,10 @@ public class RocketSpawner : MonoBehaviour
 {
     public GameObject rocketPrefab;
     public float spawnCooldown = 1;
+    public int maxSpawnCount = 3;
 
     private float m_timeSinceLastSpawn = 0;
+    private int m_spawnsCount = 0;
 
     private void Update()
     {
@@ -17,11 +19,17 @@ public class RocketSpawner : MonoBehaviour
         {
             Spawn();
         }
+
+        if(m_spawnsCount >= maxSpawnCount)
+        {
+            Destroy(gameObject);
+        }
     }
 
     private void Spawn()
     {
         Instantiate(rocketPrefab, transform.position + Vector3.up, Quaternion.identity);
+        m_spawnsCount++;
         m_timeSinceLastSpawn = 0;
     }
 }
