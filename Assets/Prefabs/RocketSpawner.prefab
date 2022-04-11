@@ -12,7 +12,9 @@ GameObject:
   - component: {fileID: 330348203763591568}
   - component: {fileID: 1144725506}
   - component: {fileID: 3332552629727214495}
-  m_Layer: 0
+  - component: {fileID: 5140973653992905250}
+  - component: {fileID: 5574815213618163213}
+  m_Layer: 6
   m_Name: RocketSpawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -123,3 +125,29 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &5140973653992905250
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 330348203763591569}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ab309c4f8d38a844bc48f91a77c14c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rocketPrefab: {fileID: 896838689853349470, guid: 044268d0efa9b6048ae1105f25da4b91, type: 3}
+  spawnCooldown: 1
+--- !u!114 &5574815213618163213
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 330348203763591569}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc741b92f42aa2c4c8197e0043db6259, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
