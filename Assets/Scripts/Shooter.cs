@@ -6,21 +6,26 @@ public class Shooter : MonoBehaviour
 {
     public GameObject shotPrefab;
     public float initialShotForce = 50.0f;
+    public float shootCooldown = 2;
+    public Transform shotOrigin;
 
-    private Transform m_shotOrigin;
-
-    private void Start()
-    {
-        m_shotOrigin = transform.Find("ShotOrigin");
-    }
+    private float m_timeSinceLastShoot = 0;
 
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Space))
+        m_timeSinceLastShoot += Time.deltaTime;
+
+        if(Input.GetKeyDown(KeyCode.Space) && m_timeSinceLastShoot >= shootCooldown)
         {
-            GameObject spawnedShot = Instantiate(shotPrefab, m_shotOrigin.position, m_shotOrigin.rotation);
-            Rigidbody2D spawnedRigidBody = spawnedShot.GetComponent<Rigidbody2D>();
-            spawnedRigidBody.AddForce(Vector2.one * initialShotForce);
+            Shoot();
         }
+    }
+
+    private void Shoot()
+    {
+        GameObject spawnedShot = Instantiate(shotPrefab, shotOrigin.position, shotOrigin.rotation);
+        Rigidbody2D spawnedRigidBody = spawnedShot.GetComponent<Rigidbody2D>();
+        spawnedRigidBody.AddForce(Vector2.one * initialShotForce);
+        m_timeSinceLastShoot = 0;
     }
 }
