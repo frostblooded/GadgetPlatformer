@@ -2,9 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RocketSpawner : MonoBehaviour
+public class RocketHat : MonoBehaviour
 {
     public GameObject rocketPrefab;
+    public Transform spawnLocation;
     public float spawnCooldown = 1;
     public int maxSpawnCount = 3;
 
@@ -28,7 +29,7 @@ public class RocketSpawner : MonoBehaviour
 
     private void Spawn()
     {
-        Instantiate(rocketPrefab, transform.position + Vector3.up, Quaternion.identity);
+        Instantiate(rocketPrefab, spawnLocation.position, Quaternion.identity);
         m_spawnsCount++;
         m_timeSinceLastSpawn = 0;
     }
