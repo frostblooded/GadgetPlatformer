@@ -10,6 +10,14 @@ public class Rocket : MonoBehaviour
 
     private float m_timeAlive = 0;
     private float m_effectiveSpeed;
+    private ParticleSystem m_particleSystem;
+    private int m_speedStage = 0;
+
+    private void Start()
+    {
+        m_particleSystem = GetComponent<ParticleSystem>();
+        m_effectiveSpeed = speed;
+    }
 
     private void Update()
     {
@@ -35,17 +43,17 @@ public class Rocket : MonoBehaviour
 
     private void CalculateSpeed()
     {
-        if(m_timeAlive < 1)
-        {
-            m_effectiveSpeed = speed;
-        }
-        else if(m_timeAlive < 2)
+        if(m_speedStage == 0 && m_timeAlive >= 1)
         {
             m_effectiveSpeed = speed * 2;
+            m_particleSystem.Emit(20);
+            m_speedStage = 1;
         }
-        else
+        else if(m_speedStage == 1 && m_timeAlive >= 2)
         {
             m_effectiveSpeed = speed * 3;
+            m_particleSystem.Emit(20);
+            m_speedStage = 2;
         }
     }
 
