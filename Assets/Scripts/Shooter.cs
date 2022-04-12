@@ -25,7 +25,9 @@ public class Shooter : MonoBehaviour
     {
         GameObject spawnedShot = Instantiate(shotPrefab, shotOrigin.position, shotOrigin.rotation);
         Rigidbody2D spawnedRigidBody = spawnedShot.GetComponent<Rigidbody2D>();
-        spawnedRigidBody.AddForce(Vector2.one * initialShotForce);
+        Vector2 force = Vector2.one * initialShotForce;
+        force.x *= GetComponent<Player>().GetRight().x;
+        spawnedRigidBody.AddForce(force);
         m_timeSinceLastShoot = 0;
     }
 }

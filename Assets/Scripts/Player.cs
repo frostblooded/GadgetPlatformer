@@ -34,11 +34,11 @@ public class Player : MonoBehaviour
 
             if(movement.x >= 0)
             {
-                m_spriteRenderer.flipX = false;
+                transform.localScale = new Vector3(1, transform.localScale.y, transform.localScale.z);
             }
             else
             {
-                m_spriteRenderer.flipX = true;
+                transform.localScale = new Vector3(-1, transform.localScale.y, transform.localScale.z);
             }
         }
         else
@@ -47,5 +47,13 @@ public class Player : MonoBehaviour
         }
 
         transform.position += movement;
+    }
+
+    public Vector2 GetRight()
+    {
+        if (transform.localScale.x >= 0)
+            return Vector2.right;
+
+        return -Vector2.right;
     }
 }
