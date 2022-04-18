@@ -10,7 +10,7 @@ public class FollowingCamera : MonoBehaviour
     // the top or bottom of the screen. So we designate some portion of the screen
     // that is near the bottom and some portion of the screen that is near the top
     // which when the player enters in, we should move the camera.
-    private float m_heightPortion;
+    private int m_heightPortion;
     private bool m_isMovingCamera;
 
     private void Start()
