@@ -184,6 +184,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 5
+  blinkOnDamaged: 1
   m_currentHealth: 0
 --- !u!50 &4407029362179647688
 Rigidbody2D:
