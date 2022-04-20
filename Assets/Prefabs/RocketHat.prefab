@@ -145,10 +145,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 330348203763591569}
   m_Enabled: 0
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8ab309c4f8d38a844bc48f91a77c14c9, type: 3}
+  m_Script: {fileID: 11500000, guid: 49cde057231e1ad448afdf680bc04f70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rocketPrefab: {fileID: 896838689853349470, guid: 044268d0efa9b6048ae1105f25da4b91, type: 3}
+  spawnedPrefab: {fileID: 896838689853349470, guid: 044268d0efa9b6048ae1105f25da4b91, type: 3}
   spawnLocation: {fileID: 8442354975448247735}
   spawnCooldown: 1
   maxSpawnCount: 3

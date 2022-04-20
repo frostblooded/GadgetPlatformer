@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RocketHat : MonoBehaviour
+public class Spawner : MonoBehaviour
 {
-    public GameObject rocketPrefab;
+    public GameObject spawnedPrefab;
     public Transform spawnLocation;
     public float spawnCooldown = 1;
     public int maxSpawnCount = 3;
@@ -16,12 +16,12 @@ public class RocketHat : MonoBehaviour
     {
         m_timeSinceLastSpawn += Time.deltaTime;
 
-        if(m_timeSinceLastSpawn >= spawnCooldown)
+        if (m_timeSinceLastSpawn >= spawnCooldown)
         {
             Spawn();
         }
 
-        if(m_spawnsCount >= maxSpawnCount)
+        if (m_spawnsCount >= maxSpawnCount)
         {
             Destroy(gameObject);
         }
@@ -29,7 +29,7 @@ public class RocketHat : MonoBehaviour
 
     private void Spawn()
     {
-        Instantiate(rocketPrefab, spawnLocation.position, Quaternion.identity);
+        Instantiate(spawnedPrefab, spawnLocation.position, Quaternion.identity);
         m_spawnsCount++;
         m_timeSinceLastSpawn = 0;
     }

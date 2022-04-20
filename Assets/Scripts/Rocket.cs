@@ -33,6 +33,11 @@ public class Rocket : MonoBehaviour
     private void RotateTowardsTarget()
     {
         if (!m_target)
+            // Try to pick new target
+            m_target = PickTarget();
+
+        // If there still isn't a target, don't do anything here
+        if (!m_target)
             return;
 
         Vector3 vectorToTarget = m_target.transform.position - transform.position;

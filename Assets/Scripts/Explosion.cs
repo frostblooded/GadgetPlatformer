@@ -9,7 +9,7 @@ public class Explosion : MonoBehaviour
 
     private void Start()
     {
-        RaycastHit2D[] hits = Physics2D.CircleCastAll(transform.position, 2, Vector2.zero);
+        RaycastHit2D[] hits = Physics2D.CircleCastAll(transform.position, radius, Vector2.zero);
 
         foreach (RaycastHit2D hit in hits)
         {
