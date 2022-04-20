@@ -6,7 +6,6 @@ public class Rocket : MonoBehaviour
 {
     public float speed = 10;
     public float rotationSpeed = 0.3f;
-    public float damage = 1;
     public GameObject explosionPrefab;
 
     private float m_timeAlive = 0;
@@ -71,17 +70,7 @@ public class Rocket : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Health health = collision.GetComponent<Health>();
-
-        if (health)
-        {
-            Instantiate(explosionPrefab, transform.position, Quaternion.identity);
-            health.TakeDamage(damage);
-            Destroy(gameObject);
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
+        Instantiate(explosionPrefab, transform.position, Quaternion.identity);
+        Destroy(gameObject);
     }
 }
