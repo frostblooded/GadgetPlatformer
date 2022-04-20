@@ -104,6 +104,7 @@ MonoBehaviour:
   speed: 3
   rotationSpeed: 5
   damage: 1
+  explosionPrefab: {fileID: 8892148924908193491, guid: 90d36072da27f1e4fa80b712f301bcaa, type: 3}
 --- !u!61 &5981849990686659538
 BoxCollider2D:
   m_ObjectHideFlags: 0

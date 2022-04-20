@@ -7,6 +7,7 @@ public class Rocket : MonoBehaviour
     public float speed = 10;
     public float rotationSpeed = 0.3f;
     public float damage = 1;
+    public GameObject explosionPrefab;
 
     private float m_timeAlive = 0;
     private float m_effectiveSpeed;
@@ -74,6 +75,7 @@ public class Rocket : MonoBehaviour
 
         if (health)
         {
+            Instantiate(explosionPrefab, transform.position, Quaternion.identity);
             health.TakeDamage(damage);
             Destroy(gameObject);
         }
