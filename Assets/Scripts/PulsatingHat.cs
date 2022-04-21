@@ -8,20 +8,20 @@ public class PulsatingHat : MonoBehaviour
     public float force = 10;
     public float forceCooldown = 2;
 
-    private float m_timeSinceLastForce = Mathf.Infinity;
+    private Timer m_forceTimer;
     private ParticleSystem m_particleSystem;
 
     private void Start()
     {
+        m_forceTimer = new Timer(forceCooldown, true);
+        m_forceTimer.onTimerEnd += Pulse;
+
         m_particleSystem = GetComponent<ParticleSystem>();
     }
 
     private void Update()
     {
-        m_timeSinceLastForce += Time.deltaTime;
-
-        if (m_timeSinceLastForce >= forceCooldown)
-            Pulse();
+        m_forceTimer.Update();
     }
 
     private void Pulse()
@@ -40,7 +40,6 @@ public class PulsatingHat : MonoBehaviour
         }
 
         m_particleSystem.Play();
-        m_timeSinceLastForce = 0;
     }
 
     private void OnDrawGizmosSelected()

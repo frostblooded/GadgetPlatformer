@@ -9,19 +9,19 @@ public class Spawner : MonoBehaviour
     public float spawnCooldown = 1;
     public int maxSpawnCount = 3;
 
-    private float m_timeSinceLastSpawn = 0;
-    private int m_spawnsCount = 0;
+    private Timer m_spawnTimer;
+
+    private void Start()
+    {
+        m_spawnTimer = new Timer(spawnCooldown, true);
+        m_spawnTimer.onTimerEnd += Spawn;
+    }
 
     private void Update()
     {
-        m_timeSinceLastSpawn += Time.deltaTime;
+        m_spawnTimer.Update();
 
-        if (m_timeSinceLastSpawn >= spawnCooldown)
-        {
-            Spawn();
-        }
-
-        if (m_spawnsCount >= maxSpawnCount)
+        if (m_spawnTimer.timesTriggered >= maxSpawnCount)
         {
             Destroy(gameObject);
         }
@@ -30,7 +30,5 @@ public class Spawner : MonoBehaviour
     private void Spawn()
     {
         Instantiate(spawnedPrefab, spawnLocation.position, Quaternion.identity);
-        m_spawnsCount++;
-        m_timeSinceLastSpawn = 0;
     }
 }

@@ -8,24 +8,31 @@ public class Enemy : MonoBehaviour
     public float damage = 2;
     public float damageCooldown = 1;
 
-    private float m_timeSinceLastDamage = Mathf.Infinity;
+    private Timer m_damageTimer;
+
+    private void Start()
+    {
+        m_damageTimer = new Timer(damageCooldown);
+
+        // Can damage immediately
+        m_damageTimer.CompleteTimer();
+    }
 
     void Update()
     {
+        m_damageTimer.Update();
         transform.position = new Vector3(transform.position.x - speed * Time.deltaTime, transform.position.y, transform.position.z);
         GetComponent<Animator>().SetBool("IsWalking", true);
-
-        m_timeSinceLastDamage += Time.deltaTime;
     }
 
     private void OnCollisionStay2D(Collision2D other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            if (m_timeSinceLastDamage > damageCooldown)
+            if (m_damageTimer.isDone)
             {
                 other.gameObject.GetComponent<Health>().TakeDamage(damage);
-                m_timeSinceLastDamage = 0;
+                m_damageTimer.Restart();
             }
         }
     }

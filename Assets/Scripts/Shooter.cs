@@ -9,13 +9,22 @@ public class Shooter : MonoBehaviour
     public float shootCooldown = 2;
     public Transform shotOrigin;
 
-    private float m_timeSinceLastShoot = Mathf.Infinity;
+    private Timer m_shootCooldownTimer;
+
+    private void Start()
+    {
+        m_shootCooldownTimer = new Timer(shootCooldown);
+
+        // Make the timer start as completed so that the shooter can shoot
+        // its first shot immediately.
+        m_shootCooldownTimer.CompleteTimer();
+    }
 
     private void Update()
     {
-        m_timeSinceLastShoot += Time.deltaTime;
+        m_shootCooldownTimer.Update();
 
-        if(Input.GetKeyDown(KeyCode.Space) && m_timeSinceLastShoot >= shootCooldown)
+        if (Input.GetKeyDown(KeyCode.Space) && m_shootCooldownTimer.isDone)
         {
             Shoot();
         }
@@ -28,6 +37,6 @@ public class Shooter : MonoBehaviour
         Vector2 force = Vector2.one * initialShotForce;
         force.x *= GetComponent<Player>().GetRight().x;
         spawnedRigidBody.AddForce(force);
-        m_timeSinceLastShoot = 0;
+        m_shootCooldownTimer.Restart();
     }
 }
