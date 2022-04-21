@@ -167,7 +167,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4465856bb722c194a83e4c0f34c0362b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shotPrefab: {fileID: 330348203763591569, guid: d62bd2f932e835043affe508273d34f3, type: 3}
+  shotPrefab: {fileID: 3579010523636784173, guid: 2e0924f9f87d816479f75c510dd29dd8, type: 3}
   initialShotForce: 50
   shootCooldown: 2
   shotOrigin: {fileID: 6573814544101380669}
