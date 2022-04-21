@@ -9,6 +9,12 @@ public class PulsatingHat : MonoBehaviour
     public float forceCooldown = 2;
 
     private float m_timeSinceLastForce = Mathf.Infinity;
+    private ParticleSystem m_particleSystem;
+
+    private void Start()
+    {
+        m_particleSystem = GetComponent<ParticleSystem>();
+    }
 
     private void Update()
     {
@@ -33,6 +39,7 @@ public class PulsatingHat : MonoBehaviour
             rigidbody2D.AddForce(directionNormalized * force, ForceMode2D.Impulse);
         }
 
+        m_particleSystem.Play();
         m_timeSinceLastForce = 0;
     }
 
