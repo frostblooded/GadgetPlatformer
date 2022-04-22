@@ -2,9 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Shooter : MonoBehaviour
+public class PlayerShooter : MonoBehaviour
 {
-    public GameObject shotPrefab;
+    public GameObject shot1Prefab;
+    public GameObject shot2Prefab;
     public float initialShotForce = 50.0f;
     public float shootCooldown = 2;
     public Transform shotOrigin;
@@ -24,13 +25,16 @@ public class Shooter : MonoBehaviour
     {
         m_shootCooldownTimer.Update();
 
-        if (Input.GetKeyDown(KeyCode.Space) && m_shootCooldownTimer.isDone)
+        if (m_shootCooldownTimer.isDone)
         {
-            Shoot();
+            if (Input.GetKeyDown(KeyCode.Q))
+                Shoot(shot1Prefab);
+            else if (Input.GetKeyDown(KeyCode.E))
+                Shoot(shot2Prefab);
         }
     }
 
-    private void Shoot()
+    private void Shoot(GameObject shotPrefab)
     {
         GameObject spawnedShot = Instantiate(shotPrefab, shotOrigin.position, shotOrigin.rotation);
         Rigidbody2D spawnedRigidBody = spawnedShot.GetComponent<Rigidbody2D>();
