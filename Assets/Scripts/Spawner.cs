@@ -29,6 +29,6 @@ public class Spawner : MonoBehaviour
 
     private void Spawn()
     {
-        Instantiate(spawnedPrefab, spawnLocation.position, Quaternion.identity);
+        Instantiate(spawnedPrefab, spawnLocation.position, spawnLocation.rotation);
     }
 }

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3332552629727214495}
   - component: {fileID: 6144474483128147109}
   - component: {fileID: 5140973653992905250}
-  - component: {fileID: 5574815213618163213}
+  - component: {fileID: 5855521895830182251}
   m_Layer: 8
   m_Name: RocketHat
   m_TagString: Untagged
@@ -97,11 +97,11 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330348203763591569}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 1
-  m_Mass: 0.23887394
+  m_UseAutoMass: 0
+  m_Mass: 0.25
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
@@ -152,7 +152,7 @@ MonoBehaviour:
   spawnLocation: {fileID: 8442354975448247735}
   spawnCooldown: 1
   maxSpawnCount: 3
---- !u!114 &5574815213618163213
+--- !u!114 &5855521895830182251
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -161,10 +161,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 330348203763591569}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc741b92f42aa2c4c8197e0043db6259, type: 3}
+  m_Script: {fileID: 11500000, guid: 5c0e85f0e9e44524f897cebd718818c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   hatComponent: {fileID: 5140973653992905250}
+  flightHeight: 3
+  movementX: 0.6
+  movementY: 2
 --- !u!1 &4267346223059382371
 GameObject:
   m_ObjectHideFlags: 0
@@ -188,11 +191,11 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4267346223059382371}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.85, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
+  m_LocalPosition: {x: 0, y: -1.5, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 330348203763586671}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
