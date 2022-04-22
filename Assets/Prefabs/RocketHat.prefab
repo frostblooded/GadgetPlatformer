@@ -12,8 +12,9 @@ GameObject:
   - component: {fileID: 330348203763591568}
   - component: {fileID: 3332552629727214495}
   - component: {fileID: 6144474483128147109}
-  - component: {fileID: 5140973653992905250}
   - component: {fileID: 5855521895830182251}
+  - component: {fileID: 5206667620987840042}
+  - component: {fileID: 5140973653992905250}
   m_Layer: 8
   m_Name: RocketHat
   m_TagString: Untagged
@@ -136,6 +137,35 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.6117406, y: 0.5928347}
   m_EdgeRadius: 0
+--- !u!114 &5855521895830182251
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 330348203763591569}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c0e85f0e9e44524f897cebd718818c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hatComponent: {fileID: 5206667620987840042}
+  flightHeight: 4
+  movementX: 0.6
+  movementY: 2
+--- !u!114 &5206667620987840042
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 330348203763591569}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2357b2ed5dfb0f049bda657f4272f5eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 1
 --- !u!114 &5140973653992905250
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -151,23 +181,7 @@ MonoBehaviour:
   spawnedPrefab: {fileID: 896838689853349470, guid: 044268d0efa9b6048ae1105f25da4b91, type: 3}
   spawnLocation: {fileID: 8442354975448247735}
   spawnCooldown: 1
-  maxSpawnCount: 3
---- !u!114 &5855521895830182251
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 330348203763591569}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c0e85f0e9e44524f897cebd718818c9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hatComponent: {fileID: 5140973653992905250}
-  flightHeight: 3
-  movementX: 0.6
-  movementY: 2
+  maxSpawnCount: 10
 --- !u!1 &4267346223059382371
 GameObject:
   m_ObjectHideFlags: 0
